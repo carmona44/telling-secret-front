@@ -1,38 +1,185 @@
-.App {
-  text-align: center;
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 64px;
+  margin-bottom: 30px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.dataContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  max-width: 650px;
+}
+
+.header {
+  text-align: center;
+  font-size: 56px;
+  font-weight: 600;
+  background: -webkit-linear-gradient(#48cbd9, #37367b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bio {
+  text-align: justify;
+  margin-top: 45px;
+  margin-bottom: 45px;
+}
+
+.waveButton {
+  cursor: pointer;
+  margin-top: 16px;
+  margin-bottom: 15px;
+  padding: 8px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #716b94;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.waveContainer {
+  background-color: #37367b;
+  margin-top: 16px;
+  padding: 15px;
+  border-radius: 2px;
+  box-shadow: 2px 2px 8px #716b94;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.waveMessage {
+  margin-top: 15px;
+}
+
+.waveDate {
+  font-size: 14px;
+  color: #c6c5d4;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 2px solid #37367b;
+  border-radius: 4px;
+  background-color: #c6c5d4;
+  font-size: 14px;
+  resize: none;
+}
+
+.wrap {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.connectButton {
+  margin-top: 45px;
+  min-width: 300px;
+  min-height: 60px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #14044d;
+  background: #4FD1C5;
+  background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+}
+
+.connectButton::before {
+  content: '';
+  border-radius: 1000px;
+  min-width: calc(300px + 12px);
+  min-height: calc(60px + 12px);
+  border: 6px solid #00FFCB;
+  box-shadow: 0 0 60px rgba(0,255,203,.64);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all .3s ease-in-out 0s;
+}
+
+.connectButton:hover, .connectButton:focus {
+  color: #313133;
+  transform: translateY(-6px);
+}
+
+.connectButton:hover::before, .connectButton:focus::before {
+  opacity: 1;
+}
+
+.connectButton::after {
+  content: '';
+  width: 30px; height: 30px;
+  border-radius: 100%;
+  border: 6px solid #00FFCB;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 1.5s infinite;
+}
+
+.connectButton:hover::after, .connectButton:focus::after {
+  animation: none;
+  display: none;
+}
+
+@keyframes ring {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
   }
+}
+
+.btn {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.6em;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  font-weight: 400;
+  line-height: 1;
+  margin: 20px;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  border-color: #00FFCB;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+  box-shadow: 0 0 10px 0 #00FFCB inset, 0 0 10px 4px #00FFCB;
+  color: white;
+  background-color: transparent;
+  border: none;
+}
+
+.btn:hover {
+  color: #14044d;
+  box-shadow: 0 0 40px 40px #4FD1C5 inset, 0 0 0 0 #4FD1C5;
 }
